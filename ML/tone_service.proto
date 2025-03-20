@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service ToneService {
+    rpc GetTone (GetToneRequest) returns (GetToneResponse);
+}
+
+message GetToneRequest {
+    string text = 1;
+}
+
+message GetToneResponse {
+    Tone tone = 1;
+}
+
+enum Tone {
+    TONE_UNSPECIFIED = 0;
+    TONE_POSITIVE = 1;
+    TONE_NEGATIVE = 2;
+}
