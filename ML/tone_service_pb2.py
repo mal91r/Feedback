@@ -24,19 +24,19 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12tone_service.proto\"\x1e\n\x0eGetToneRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\"&\n\x0fGetToneResponse\x12\x13\n\x04tone\x18\x01 \x01(\x0e\x32\x05.Tone*B\n\x04Tone\x12\x14\n\x10TONE_UNSPECIFIED\x10\x00\x12\x11\n\rTONE_POSITIVE\x10\x01\x12\x11\n\rTONE_NEGATIVE\x10\x02\x32;\n\x0bToneService\x12,\n\x07GetTone\x12\x0f.GetToneRequest\x1a\x10.GetToneResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12tone_service.proto\x12\x04tone\"\x1e\n\x0eGetToneRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\"+\n\x0fGetToneResponse\x12\x18\n\x04tone\x18\x01 \x01(\x0e\x32\n.tone.Tone*B\n\x04Tone\x12\x14\n\x10TONE_UNSPECIFIED\x10\x00\x12\x11\n\rTONE_POSITIVE\x10\x01\x12\x11\n\rTONE_NEGATIVE\x10\x02\x32\x45\n\x0bToneService\x12\x36\n\x07GetTone\x12\x14.tone.GetToneRequest\x1a\x15.tone.GetToneResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'tone_service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_TONE']._serialized_start=94
-  _globals['_TONE']._serialized_end=160
-  _globals['_GETTONEREQUEST']._serialized_start=22
-  _globals['_GETTONEREQUEST']._serialized_end=52
-  _globals['_GETTONERESPONSE']._serialized_start=54
-  _globals['_GETTONERESPONSE']._serialized_end=92
-  _globals['_TONESERVICE']._serialized_start=162
-  _globals['_TONESERVICE']._serialized_end=221
+  _globals['_TONE']._serialized_start=105
+  _globals['_TONE']._serialized_end=171
+  _globals['_GETTONEREQUEST']._serialized_start=28
+  _globals['_GETTONEREQUEST']._serialized_end=58
+  _globals['_GETTONERESPONSE']._serialized_start=60
+  _globals['_GETTONERESPONSE']._serialized_end=103
+  _globals['_TONESERVICE']._serialized_start=173
+  _globals['_TONESERVICE']._serialized_end=242
 # @@protoc_insertion_point(module_scope)

@@ -32,6 +32,10 @@ vectorizer_tfidf = TfidfVectorizer(analyzer='char', ngram_range=(3, 5))
 X_train_tfidf = vectorizer_tfidf.fit_transform(X_train)
 X_test_tfidf = vectorizer_tfidf.transform(X_test)
 
+# Сохранение модели
+with open('vectorizer.pkl', 'wb') as vectorizer_tfidf_file:
+    pickle.dump(vectorizer_tfidf, vectorizer_tfidf_file)
+
 print("SVM with TF-IDF Char 3-4-5-grams:")
 train_and_evaluate(svm_model, X_train_tfidf, X_test_tfidf, y_train, y_test)
 
