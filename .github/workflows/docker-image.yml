@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build Docker image
         run: |
-          docker build -t mal91r/feedback-service-amd64 .
+          docker build -f ./Feedback.Presentation/Dockerfile -t mal91r/feedback-service-amd64 .
           docker push mal91r/feedback-service-amd64
