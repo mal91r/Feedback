@@ -5,6 +5,8 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Feedback.Presentation/Feedback.Presentation.csproj", "Feedback.Presentation/"]
+ENV NUGET_PACKAGES=/root/.nuget/packages
+RUN mkdir -p /root/.nuget/packages
 RUN dotnet restore "Feedback.Presentation/Feedback.Presentation.csproj"
 COPY . .
 WORKDIR "/src/Feedback.Presentation"

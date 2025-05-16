@@ -7,7 +7,7 @@ namespace Feedback.Infrastructure.Repositories.Clickhouse;
 
 internal sealed class FeedbackRepository : IFeedbackRepository
 {
-    private const string ConnectionString = "Host=localhost;Port=9000;Database=clickhouse;User=clickhouse;Password=clickhouse";
+    private const string ConnectionString = "Host=5.129.201.57;Port=9000;Database=default_db;User=gen_user;Password=J+9AdWQyvhE6zR";
 
     private const string InsertFeedbackQuery = "INSERT INTO FeedbackMessages SELECT {ClientId}, {Message}, {Tone}";
     public async Task SaveFeedbackMessage(Guid clientId, string message, Tone tone, CancellationToken cancellationToken)

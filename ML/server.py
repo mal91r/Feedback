@@ -31,7 +31,7 @@ class ToneService(tone_service_pb2_grpc.ToneServiceServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     tone_service_pb2_grpc.add_ToneServiceServicer_to_server(ToneService(), server)
-    server.add_insecure_port('0.0.0.0:5002')
+    server.add_insecure_port('[::]:5002')
     server.start()
     server.wait_for_termination()
 

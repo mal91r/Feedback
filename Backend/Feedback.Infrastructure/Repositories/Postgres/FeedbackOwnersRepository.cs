@@ -7,11 +7,11 @@ namespace Feedback.Infrastructure.Repositories.Postgres;
 
 internal sealed class FeedbackOwnersRepository : IFeedbackOwnersRepository
 {
-    private const string ConnectionString = "Host=postgres;" +
+    private const string ConnectionString = "Host=109.73.196.201;" +
         "Port=5432;" +
-        "Username=postgres;" +
-        "Password=postgres;" +
-        "Database=postgres";
+        "Username=gen_user;" +
+        "Password=f0x%M/)-5hO?3R;" +
+        "Database=default_db";
 
     private const string AddFeedbackOwners = $"""
             insert into "FeedbackOwners" ("ClientId", "ChannelId") values (@clientId,@channelId)

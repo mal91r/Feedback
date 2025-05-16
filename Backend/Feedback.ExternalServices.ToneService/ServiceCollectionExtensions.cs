@@ -9,7 +9,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddToneService(this IServiceCollection services, IConfiguration configuration)
     {
-        GrpcChannel channel = GrpcChannel.ForAddress("http://127.0.0.1:5002");
+        GrpcChannel channel = GrpcChannel.ForAddress("http://5.129.204.202:5002");
         var client = new Tone.ToneService.ToneServiceClient(channel);
 
         services.AddSingleton<Tone.ToneService.ToneServiceClient>(client);
