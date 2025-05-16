@@ -1,6 +1,10 @@
 using System.Reflection;
 
 using Feedback.ExternalServices.Telegram;
+using Feedback.ExternalServices.ToneService;
+using Feedback.Infrastructure;
+
+using MediatR;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,10 +27,10 @@ public class Startup
     {
         services.AddCors(options =>
         {
-            options.AddPolicy("AllowAll",
-                builder =>
+            options.AddPolicy("AllowAllOrigins",
+                policy =>
                 {
-                    builder.AllowAnyOrigin()
+                    policy.AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader();
                 });
@@ -36,9 +40,17 @@ public class Startup
 
         services.AddSwaggerGen();
 
-        services.AddTelegramClient(Configuration);
+        services
+            .AddInfrastructure(Configuration);
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Load(DomainServiceAssembly)));
+
+        var provider = services.BuildServiceProvider();
+
+        var mediator = provider.GetRequiredService<IMediator>();
+
+        services.AddTelegramClient(mediator, Configuration);
+        services.AddToneService(Configuration);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,7 +60,7 @@ public class Startup
 
         app.UseRouting();
 
-        app.UseCors();
+        app.UseCors("AllowAllOrigins");
 
         app.UseEndpoints(
             endpoints =>

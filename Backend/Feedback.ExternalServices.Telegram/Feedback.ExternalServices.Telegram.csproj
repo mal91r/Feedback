@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Feedback.DomainServices\Feedback.DomainServices.csproj" />
       <ProjectReference Include="..\Feedback.ExternalServices\Feedback.ExternalServices.csproj" />
     </ItemGroup>
 

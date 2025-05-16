@@ -25,7 +25,7 @@ public class FeedbackController : ControllerBase
         PostFeedbackRequest request,
         CancellationToken cancellationToken)
     {
-        var internalRequest = new PostFeedbackInternalRequest(request.ChatId, request.Message);
+        var internalRequest = new PostFeedbackInternalRequest(request.ClientId, request.Message);
 
         await _mediator.Send(internalRequest, cancellationToken);
 

@@ -2,4 +2,4 @@ using MediatR;
 
 namespace Feedback.DomainServices.PostFeedback.Contracts;
 
-public record PostFeedbackInternalRequest(long ChatId, string Message) : IRequest;
+public record PostFeedbackInternalRequest(Guid ClientToken, string Message) : IRequest;

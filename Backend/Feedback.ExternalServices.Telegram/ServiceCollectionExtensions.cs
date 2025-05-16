@@ -1,3 +1,7 @@
+using Feedback.DomainServices.CreateOwnerToken.Contracts;
+
+using MediatR;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +18,8 @@ namespace Feedback.ExternalServices.Telegram;
 
 public static class ServiceCollectionExtensions
 {
+    private static IMediator Mediator;
+
     private static readonly ReplyKeyboardMarkup KeyboardMarkup = new ReplyKeyboardMarkup(
         new List<KeyboardButton[]>()
         {
@@ -35,8 +41,10 @@ public static class ServiceCollectionExtensions
         ResizeKeyboard = true,
     };
 
-    public static IServiceCollection AddTelegramClient(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddTelegramClient(this IServiceCollection services, IMediator mediator, IConfiguration configuration)
     {
+        Mediator = mediator;
+
         var botClient = new TelegramBotClient("7782262843:AAEJtz6ANnebLtgvHlpBGLMfaAHZGDJRkqk");
         var receiverOptions = new ReceiverOptions
         {
@@ -120,23 +128,8 @@ public static class ServiceCollectionExtensions
                             {
                                 await botClient.SendTextMessageAsync(
                                     chat.Id,
-                                    @"<!-- в head один раз -->
-                                    <script async type=""text/javascript"" src=""https://mycompany.site/js/api/api.min.js""></script>
-
-                                    <!-- в место вызова виджета -->
-                                    <div id=""button-container-5ef9b197c865f""></div>
-                                    <script type=""text/javascript"">
-                                    (function() {
-                                    var init = function() {
-                                        myCompanyApi.button('button-container-5ef9b197c865f', {token});
-                                    };
-                                    if (typeof myCompanyApi !== 'undefined') {
-                                        init();
-                                    } else {
-                                        (myCompanyApiInitCallbacks = window.myCompanyApiInitCallbacks || []).push(init);
-                                    }
-                                })();
-                                </script>",
+                                    @"<button id=""first-feedback"" data-feedback-trigger data-feedback-meta='{""user"":{""id"":""your-token""}}'>Оставить отзыв</button>
+<script src=""./feedback.js""></script>",
                                     replyMarkup: KeyboardMarkup); // опять передаем клавиатуру в параметр replyMarkup
 
                                 return;
@@ -145,9 +138,13 @@ public static class ServiceCollectionExtensions
                             // тут обрабатываем команду /getToken
                             if (message.Text == "/getToken")
                             {
+                                var getTokenRequest = new CreateOwnerTokenRequest(chat.Id);
+
+                                CreateOwnerTokenResponse response = await Mediator.Send(getTokenRequest, cancellationToken: cancellationToken);
+
                                 await botClient.SendTextMessageAsync(
                                     chat.Id,
-                                    Guid.NewGuid().ToString(),
+                                    response.ClientToken.ToString(),
                                     replyMarkup: KeyboardMarkup); // опять передаем клавиатуру в параметр replyMarkup
 
                                 return;

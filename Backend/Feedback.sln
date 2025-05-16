@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{37427976-36F0-4931-AEB8-15CD63AA2F50}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+		.dockerignore = .dockerignore
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedback.Presentation", "Feedback.Presentation\Feedback.Presentation.csproj", "{50581F8F-3474-41FD-8825-11CAF79BB0D3}"
 EndProject
@@ -19,6 +23,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedback.ExternalServices", "Feedback.ExternalServices\Feedback.ExternalServices.csproj", "{C53608BA-B51B-4AD8-9DFB-F54C8C96F030}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedback.ExternalServices.Telegram", "Feedback.ExternalServices.Telegram\Feedback.ExternalServices.Telegram.csproj", "{DC20BD00-F40A-44C0-8AF1-CF717F95C381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedback.ExternalServices.ToneService", "Feedback.ExternalServices.ToneService\Feedback.ExternalServices.ToneService.csproj", "{51741CC0-83A5-4489-B071-61BDF721B5BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +64,10 @@ Global
 		{DC20BD00-F40A-44C0-8AF1-CF717F95C381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC20BD00-F40A-44C0-8AF1-CF717F95C381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC20BD00-F40A-44C0-8AF1-CF717F95C381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51741CC0-83A5-4489-B071-61BDF721B5BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51741CC0-83A5-4489-B071-61BDF721B5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51741CC0-83A5-4489-B071-61BDF721B5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51741CC0-83A5-4489-B071-61BDF721B5BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{50581F8F-3474-41FD-8825-11CAF79BB0D3} = {37427976-36F0-4931-AEB8-15CD63AA2F50}
@@ -69,5 +79,6 @@ Global
 		{EDB46905-1096-41AF-ADB3-880D5C0FE0D8} = {37427976-36F0-4931-AEB8-15CD63AA2F50}
 		{C53608BA-B51B-4AD8-9DFB-F54C8C96F030} = {EDB46905-1096-41AF-ADB3-880D5C0FE0D8}
 		{DC20BD00-F40A-44C0-8AF1-CF717F95C381} = {EDB46905-1096-41AF-ADB3-880D5C0FE0D8}
+		{51741CC0-83A5-4489-B071-61BDF721B5BB} = {EDB46905-1096-41AF-ADB3-880D5C0FE0D8}
 	EndGlobalSection
 EndGlobal

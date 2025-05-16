@@ -9,13 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="MediatR" Version="12.4.1" />
+      <PackageReference Include="MediatR" Version="12.5.0" />
       <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.13" />
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.2" />
       <PackageReference Include="Swashbuckle" Version="5.6.0" />
@@ -28,6 +22,8 @@
       <ProjectReference Include="..\Feedback.Abstractions\Feedback.Abstractions.csproj" />
       <ProjectReference Include="..\Feedback.DomainServices\Feedback.DomainServices.csproj" />
       <ProjectReference Include="..\Feedback.ExternalServices.Telegram\Feedback.ExternalServices.Telegram.csproj" />
+      <ProjectReference Include="..\Feedback.ExternalServices.ToneService\Feedback.ExternalServices.ToneService.csproj" />
+      <ProjectReference Include="..\Feedback.Infrastructure\Feedback.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
