@@ -19,5 +19,5 @@ jobs:
       - name: Build Docker image
         run: |
           cd Backend
-          docker build -f ./Feedback.Presentation/Dockerfile -t mal91r/feedback-service-amd64 .
+          docker build --no-cache -f ./Feedback.Presentation/Dockerfile -t mal91r/feedback-service-amd64 .
           docker push mal91r/feedback-service-amd64
