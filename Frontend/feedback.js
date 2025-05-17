@@ -8,7 +8,6 @@ function createDialog(meta) {
         <br>
         <button id="closeDialog">Закрыть</button>
         <button id="apply">Отправить</button>
-        <pre>${meta}</pre>
     `;
     
 
@@ -32,14 +31,14 @@ function createDialog(meta) {
 
 
         // Отправка HTTP POST-запроса
-        fetch('http://localhost:5000/Feedback/PostFeedback', {
+        fetch('http://4810897-ta77728.twc1.net:8080/Feedback/PostFeedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 'message': reviewText,
-                'chatId': userId
+                'clientId': userId
             }),
         })
             .then(response => {
