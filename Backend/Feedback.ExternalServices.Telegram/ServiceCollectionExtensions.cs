@@ -129,7 +129,7 @@ public static class ServiceCollectionExtensions
                                 await botClient.SendTextMessageAsync(
                                     chat.Id,
                                     @"<button id=""first-feedback"" data-feedback-trigger data-feedback-meta='{""user"":{""id"":""your-token""}}'>Оставить отзыв</button>
-<script src=""./feedback.js""></script>",
+<script src=""https://mal91r.github.io/Feedback/Frontend/feedback.js""></script>",
                                     replyMarkup: KeyboardMarkup); // опять передаем клавиатуру в параметр replyMarkup
 
                                 return;
